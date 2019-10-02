@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  A form to upload resources for custom mobile application.
+-->
+<template clear="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://libs.svn.1024.info/shared/xsd/template.xsd">
+  <form
+    action="[url_upload]"
+    class="wl-skin-application-resource-edit-form"
+    enctype="multipart/form-data"
+    id="wl-skin-application-resource-upload-archive-form"
+    method="post"
+  >
+    <load src="a.form" action="wl-skin-application-resource-editcontroller" uid="1" sess="1" />
+    <div class="application-resource-center-title">[{Images for custom application|wl.skin.application.resource}]</div>
+    <div class="text-information-container">
+      <label>
+        [{Upload all images in one ZIP archive|wl.skin.application.resource}]
+        <input class="type-text" type="file" name="f_pack" accept="application/zip" />
+        <load src="a.validate.message" s_field="archive_upload" o_controller="[o_controller]" />
+      </label>
+      <div class="button-holder">
+        <div class="right-button">
+          <input class="button-submit button-next" type="submit" value="[{Upload images|wl.skin.application.resource}]" />
+        </div>
+      </div>
+    </div>
+    <load src="a.validate.message" s_field="" a_rule="" a_error="[a_error]" has-error="[has_error]" />
+  </form>
+  <form
+    action="[url_action]"
+    class="wl-skin-application-resource-edit-form"
+    enctype="multipart/form-data"
+    id="wl-skin-application-resource-edit-form"
+    method="post"
+  >
+    <load src="a.form" action="wl-skin-application-resource-editcontroller" uid="1" sess="1" />
+    <div class="application-resource-center-title">[{Resources for custom application|wl.skin.application.resource}]</div>
+
+    <!--***********************************
+    Text resources for application building
+    ***********************************!-->
+    <div class="text-information-container">
+      <label>
+        [{Application name|wl.skin.application.resource}]
+        <div class="counter-holder" data-require="1">
+          <input class="type-text" type="text" name="text_name" id="text_name" value="[html_name]" data-length="[Wl\Skin\Application\Resource\EditController::NAME_MAX_LENGTH]" />
+          <div class="symbol-counter"><empty /></div>
+          <load src="a.validate.message" s_field="text_name" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+      <label>
+        [{Application category|wl.skin.application.resource}]
+        <div class="counter-holder" data-require="1">
+          <load
+            id_value="[id_category]"
+            is_empty="1"
+            name="id_category"
+            s_class="Wl\Skin\Application\Resource\ApplicationCategory"
+            s_empty="Select application category"
+            src="a.sid.select"
+          />
+          <load src="a.validate.message" s_field="id_category" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+      <label>
+        [{Short description|wl.skin.application.resource}]
+        <div class="counter-holder" data-require="1">
+          <textarea rows="2" cols="50" class="type-text" name="text_annotation" data-length="[Wl\Skin\Application\Resource\EditController::ANNOTATION_MAX_LENGTH]">[html_annotation]</textarea>
+          <div class="symbol-counter"><empty /></div>
+          <load src="a.validate.message" s_field="text_annotation" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+      <label>
+        [{Description|wl.skin.application.resource}]
+        <div class="counter-holder" data-require="1">
+          <textarea rows="5" cols="50" name="text_description" data-length="[Wl\Skin\Application\Resource\EditController::DESCRIPTION_MAX_LENGTH]">[html_description]</textarea>
+          <div class="symbol-counter"><empty /></div>
+          <load src="a.validate.message" s_field="text_description" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+      <label>
+        [{Preferred domain|wl.skin.application.resource}]
+        <div class="counter-holder" data-require="1">
+          <input class="type-text" type="text" name="text_domain" id="text_domain" value="[html_domain]" data-length="[Wl\Skin\Application\Resource\EditController::DOMAIN_MAX_LENGTH]" />
+          <div class="symbol-counter"><empty /></div>
+          <load src="a.validate.message" s_field="text_domain" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+      <label>
+        [{Keywords|wl.skin.application.resource}]
+        <div class="counter-holder" data-require="1">
+          <textarea rows="2" cols="50" name="text_keyword" data-length="[Wl\Skin\Application\Resource\EditController::KEYWORD_MAX_LENGTH]" data-require="">[html_keyword]</textarea>
+          <div class="symbol-counter"><empty /></div>
+          <load src="a.validate.message" s_field="text_keyword" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+      <div class="wl-skin-application-business-information-wrapper">
+        <div class="wl-skin-application-business-information">[{Business information|wl.skin.application.resource}]</div>
+        <label>
+          [{Website|wl.skin.application.resource}]
+          <div class="counter-holder" data-require="1">
+            <input class="type-text" type="text" name="text_website" id="text_website" value="[html_website]" data-length="[Wl\Skin\Application\Resource\EditController::WEBSITE_MAX_LENGTH]" />
+            <div class="symbol-counter"><empty /></div>
+            <load src="a.validate.message" s_field="text_website" o_controller="[o_controller]" />
+          </div>
+        </label>
+
+        <label>
+          [{Email|wl.skin.application.resource}]
+          <div class="counter-holder" data-require="1">
+            <input class="type-text" type="text" name="text_email" id="text_email" value="[html_email]" />
+            <load src="a.validate.message" s_field="text_email" o_controller="[o_controller]" />
+          </div>
+        </label>
+
+        <label>
+          [{Phone|wl.skin.application.resource}]
+          <div class="counter-holder" data-require="1">
+            <input class="type-text" type="text" name="text_phone" id="text_phone" value="[html_phone]" />
+            <load src="a.validate.message" s_field="text_phone" o_controller="[o_controller]" />
+          </div>
+        </label>
+      </div>
+
+      <label>
+        [{Countries of application distribution|wl.skin.application.resource}]
+        <div class="counter-holder">
+          <input class="type-text" type="text" name="text_country" value="[html_country]" data-length="[Wl\Skin\Application\Resource\EditController::COUNTRY_MAX_LENGTH]" />
+          <div class="symbol-counter"><empty /></div>
+          <load src="a.validate.message" s_field="text_country" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+      <label>
+        [{Other information|wl.skin.application.resource}]
+        <div class="counter-holder">
+          <textarea rows="4" cols="50" name="text_information" data-length="[Wl\Skin\Application\Resource\EditController::INFORMATION_MAX_LENGTH]">[html_information]</textarea>
+          <div class="symbol-counter"><empty /></div>
+          <load src="a.validate.message" s_field="text_information" o_controller="[o_controller]" />
+        </div>
+      </label>
+
+    </div>
+
+    <!--***********************************
+    Images resources for application building
+    ***********************************!-->
+    <foreach src="a_resource">
+      <div class="application-resource-center-title">[html_group]</div>
+      <foreach src="a_group">
+        <if def="html_title"> <div class="application-resource-title">[html_title]</div> </if>
+        <div class="[s_class]">
+          <if def="html_subtitle"><div class="application-resource-title">[html_subtitle]</div></if>
+          <if def="html_comment"><div class="resource-text">[html_comment]</div></if>
+          <foreach src="a_image">
+          <div class="application-image-load" data-require="[is_require]">
+              <load
+                call_apply="Wl_Skin_Application_Resource.removeValidateError"
+                o_image="[o_image]"
+                s_mode="preview"
+                src="a.image.upload"
+              />
+              <if def="s_link">
+                <div class="application-image-size"><a href="[s_link]" target="_blank">[{[i_width]x[i_height]px|wl.skin.application.resource}]</a></div>
+              <else />
+                <div class="application-image-size">[{[i_width]x[i_height]px|wl.skin.application.resource}]</div>
+              </if>
+            </div>
+          </foreach>
+        </div>
+      </foreach>
+    </foreach>
+
+    <div class="button-holder">
+      <input class="button-submit button-next" type="button" value="[{Download images|wl.skin.application.resource}]" name="download" onclick="Core_Redirect.redirect('[url_zip]')" />
+      <div class="right-button">
+        <input class="button-submit button-next" type="button" value="[{Validate form|wl.skin.application.resource}]" onclick="Wl_Skin_Application_Resource.checkRequireContent()" />
+        <input class="button-submit button-next" type="submit" value="[{Save|wl.skin.application.resource}]" />
+      </div>
+    </div>
+  </form>
+
+  <script type="text/javascript">
+    Wl_Skin_Application_Resource.startup();
+  </script>
+</template>

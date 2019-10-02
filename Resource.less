@@ -1,0 +1,227 @@
+@import "../../../../project/less/rs.import.less";
+
+@color-icon-application: #90c3d4;
+@color-loading-screens: #c390d4;
+
+.wl-skin-application-resource-edit-form {
+  background: @CMS_COLOR_BACKGROUND;
+  padding: 0 50px;
+
+  input, textarea {
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .wl-skin-application-business-information-wrapper{
+    border: 1px solid @color-border-input-grey;
+    border-radius: 3px;
+    margin: 18px 0 18px 0;
+    padding: 18px 18px 0;
+    position: relative;
+
+    .wl-skin-application-business-information{
+      background: @CMS_COLOR_BACKGROUND;
+      padding: 0 2px;
+      position: absolute;
+      top: -12px;
+    }
+  }
+
+  .application-image-load{
+    display: inline-block;
+    padding: 0 5px;
+
+    .a-image-upload {
+      .a-image-upload-preview {
+        .container {
+          border-radius: 3px;
+          padding: 2px;
+        }
+      }
+    }
+
+    .application-image-size {
+      color: darken(@color-link-hover, 30%);
+      padding-top: 5px;
+      text-align: center;
+    }
+  }
+
+  .application-resource-title{
+    color: darken(@color-link-hover, 30%);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .button-holder{
+    display: flex;
+    justify-content: space-between;
+
+    .button-submit {
+      margin-top: 20px;
+      padding: 10px 20px;
+      width: auto;
+    }
+
+    .right-button {
+      .button-submit[type="submit"] {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .application-resource-center-title {
+    color: @color-link-hover;
+    font-size: 21px;
+    margin: 30px 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .chosen-container{
+    margin: 5px 0 20px 0;
+  }
+
+  .counter-holder{
+    input + .a-validate-message-container {
+      padding-top: 15px;
+    }
+  }
+
+  .validate-error, label .validate-error{
+    background-color: @color-import-error;
+  }
+
+  .icon-application,
+  .loading-screens,
+  .icon-store,
+  .application-screens {
+    border: 2px solid @color-icon-application;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 20px 30px;
+  }
+
+  .icon-application{
+    border-color: @color-icon-application;
+
+    .a-image-upload {
+      .a-image-upload-preview {
+        &:hover {
+          .container {
+            border: 2px solid @color-icon-application;
+          }
+        }
+      }
+    }
+  }
+
+  .icon-application + .application-resource-title {
+    color: darken(@color-loading-screens, 30%);
+  }
+
+  .loading-screens + .application-resource-title {
+    color: darken(@color-closed-day, 30%);
+  }
+
+  .icon-store{
+    border-color: @color-closed-day;
+
+    .application-resource-title {
+      color: @color-closed-day;
+      padding-left: 10px;
+    }
+
+    .a-image-upload {
+      .a-image-upload-preview {
+        &:hover {
+          .container {
+            border: 2px solid @color-closed-day;
+          }
+        }
+      }
+    }
+  }
+
+  .loading-screens{
+    border-color: @color-loading-screens;
+
+    .a-image-upload {
+      .a-image-upload-preview {
+        &:hover {
+          .container {
+            border: 2px solid @color-loading-screens;
+          }
+        }
+      }
+    }
+  }
+
+  .application-screens {
+    border-color: @color-button-delete-text;
+
+    .application-resource-title {
+      color: @color-button-delete-text;
+      margin-left: 10px;
+    }
+
+    .a-image-upload {
+      .a-image-upload-preview {
+        &:hover {
+          .container {
+            border: 2px solid @color-button-delete-text;
+          }
+        }
+      }
+    }
+  }
+
+  .resource-text{
+    color: darken(@color-link-hover, 30%);
+    padding: 7px 10px;
+  }
+
+  .symbol-counter{
+    text-align: right;
+  }
+
+  .text-information-container{
+    .button-holder {
+      .right-button {
+        .button-submit[type="submit"] {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 15px;
+
+    .application-resource-title {
+      margin-bottom: 15px;
+    }
+
+    .application-resource-center-title {
+      margin: 30px 0;
+    }
+
+    .icon-application,
+    .loading-screens,
+    .icon-store,
+    .application-screens {
+      margin-bottom: 15px;
+      padding: 15px;
+    }
+  }
+
+  @media (max-width:480px) {
+    .button-holder{
+      display: block;
+    }
+  }
+}
